@@ -1,9 +1,10 @@
-# 05. pyqt_timer.py
-# PyQt 타이머 예제
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel
 from PyQt5.QtCore import QTimer
-
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton
+import numpy as np
 
 class MyApp(QWidget):
     def __init__(self):
@@ -13,7 +14,7 @@ class MyApp(QWidget):
         # 창 제목 설정
         self.setWindowTitle('GA Mario')
 
-        self.i = 400
+        self.i = 0
         self.label = QLabel(self)
         # 타이머 생성
         self.qtimer = QTimer(self)
@@ -28,7 +29,7 @@ class MyApp(QWidget):
     def timer(self):
         self.label.setGeometry(100, 100, 100, 100)
         self.label.setText(str(self.i))
-        self.i = self.i -1
+        self.i = self.i + 1
 
 
 if __name__ == '__main__':
